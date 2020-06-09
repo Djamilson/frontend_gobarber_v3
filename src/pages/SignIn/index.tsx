@@ -1,10 +1,10 @@
 import React, { useRef, useCallback } from 'react';
 import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
+import { Link, useHistory } from 'react-router-dom';
 
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
 
 import logoImg from '../../assets/logo.svg';
 import Button from '../../components/Button';
@@ -21,6 +21,7 @@ interface SignInFormData {
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const history = useHistory();
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
@@ -44,8 +45,9 @@ const SignIn: React.FC = () => {
           email: data.email,
           password: data.password,
         });
+
+        //history.push('/dashboard');
       } catch (err) {
-        console.log('Error: ', err);
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErros(err);
           formRef.current?.setErrors(errors);
@@ -54,8 +56,9 @@ const SignIn: React.FC = () => {
 
         addToast({
           type: 'error',
-          title: 'Error na autenticação',
-          description: 'Ocorreu um erro ao fazer login, cheque as credenciais',
+          title: 'Falha na autenticação',
+          description:
+            'Ocorreu uma falha ao tentar fazer o login, cheque as credenciais',
         });
       }
     },

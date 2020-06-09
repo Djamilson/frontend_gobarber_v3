@@ -27,7 +27,7 @@
     "@typescript-eslint",
     "react-hooks",
     "prettier",
-    "eslint-plugin-import-helpers"
+    "import-helpers"
   ],
   "rules": {
     "prettier/prettier": "error",
@@ -50,13 +50,13 @@
         "tsx": "never"
       }
     ],
+
     "import-helpers/order-imports": [
       "warn",
       {
         "newlinesBetween": "always",
         "groups": [
           "/^react/",
-          "/^prop-types/",
           "module",
           "/^~/",
           ["parent", "sibling", "index"]
