@@ -10,6 +10,7 @@ import logoImg from '../../assets/logo.svg';
 import Button from '../../components/Button';
 import Input from '../../components/Input';
 import { useAuth } from '../../hooks/auth';
+import { useLoading } from '../../hooks/loading';
 import { useToast } from '../../hooks/toast';
 import getValidationErros from '../../utils/getValidationErros';
 import { Container, Content, AnimationContainer, Background } from './styles';
@@ -25,6 +26,7 @@ const SignIn: React.FC = () => {
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
+  const { addLoading, removeLoading } = useLoading();
 
   const handleSubmit = useCallback(
     async (data: SignInFormData) => {
@@ -41,17 +43,28 @@ const SignIn: React.FC = () => {
           abortEarly: false,
         });
 
+        addLoading({
+          loading: true,
+          description: 'Aguarde ...',
+        });
+
         await signIn({
           email: data.email,
           password: data.password,
         });
 
-        //history.push('/dashboard');
+        addLoading({
+          loading: false,
+        });
+
+        history.push('/dashboard');
       } catch (err) {
+        addLoading({
+          loading: false,
+        });
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErros(err);
           formRef.current?.setErrors(errors);
-          return;
         }
 
         addToast({
@@ -62,7 +75,7 @@ const SignIn: React.FC = () => {
         });
       }
     },
-    [signIn, addToast],
+    [signIn, addToast, history],
   );
 
   return (
