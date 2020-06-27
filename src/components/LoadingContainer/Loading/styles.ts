@@ -3,8 +3,8 @@ import { animated } from 'react-spring';
 import styled, { keyframes, css } from 'styled-components';
 
 interface ContainerProps {
-  hasDescription: boolean;
-  load: boolean;
+  hasDescription: number;
+  load: number;
 }
 
 const loadingTypeVariantions = {
