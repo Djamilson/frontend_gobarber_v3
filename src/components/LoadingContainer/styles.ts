@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 interface ContainerProps {
-  load: boolean;
+  load: number;
 }
 
 export const Container = styled.div<ContainerProps>`

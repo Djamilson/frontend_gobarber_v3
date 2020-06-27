@@ -1,5 +1,4 @@
 import React from 'react';
-import { FiInfo } from 'react-icons/fi';
 
 import { LoadingMessage } from '../../../hooks/loading';
 import { Container } from './styles';
@@ -9,16 +8,12 @@ interface LoadingProps {
   style: object;
 }
 
-const icons = {
-  info: <FiInfo size={24} />,
-};
-
 const Loading: React.FC<LoadingProps> = ({ message, style }) => {
   return (
     <Container
       style={style}
-      load={message.loading}
-      hasDescription={!!message.description}
+      load={Number(message.loading)}
+      hasDescription={Number(!!message.description)}
     >
       <div>
         <article>
