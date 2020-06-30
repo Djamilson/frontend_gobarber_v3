@@ -80,7 +80,7 @@ const ResetPassword: React.FC = () => {
         removeLoading();
       }
     },
-    [addToast, addLoading, removeLoading, location, history],
+    [addToast, addLoading, removeLoading, location.search, history],
   );
 
   return (

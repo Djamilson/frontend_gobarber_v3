@@ -9,10 +9,13 @@ interface LoadingProps {
 }
 
 const Loading: React.FC<LoadingProps> = ({ message, style }) => {
+  console.log('message', message);
+  console.log('styles', style);
+
   return (
     <Container
       style={style}
-      load={Number(message.loading)}
+      load={Number(!!message.loading)}
       hasDescription={Number(!!message.description)}
     >
       <div>

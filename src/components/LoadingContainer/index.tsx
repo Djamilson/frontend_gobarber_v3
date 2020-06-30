@@ -17,7 +17,7 @@ const LoadingContainer: React.FC<LoadingContainerProps> = ({ message }) => {
   });
 
   return (
-    <Container load={Number(message.loading)}>
+    <Container load={Number(!!message.loading)}>
       {messageWithTransition.map(({ item, key, props }) => (
         <Load key={key} style={props} message={item} />
       ))}
