@@ -85,7 +85,7 @@ const Profile: React.FC = () => {
             : {}),
         };
         const res = await api.put('/profile', formData);
-        console.log('==>> /profile', res.data);
+        
         updateUser(res.data);
 
         history.push('/dashboard');

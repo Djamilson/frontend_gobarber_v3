@@ -1,7 +1,7 @@
-![](./imagens/0101.png)
-![](./imagens/0102.png)
-![](./imagens/0103.png)
-![](./imagens/0104.png)
-![](./imagens/0105.png)
-![](./imagens/0106.png)
-![](./imagens/0107.png)
+<img src="./imagens/0101.png" width="250" />
+<img src="./imagens/0102.png" width="250" />
+<img src="./imagens/0103.png" width="250" />
+<img src="./imagens/0104.png" width="250" />
+<img src="./imagens/0105.png" width="250" />
+<img src="./imagens/0106.png" width="250" />
+<img src="./imagens/0107.png" width="250" />

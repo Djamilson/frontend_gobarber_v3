@@ -1,7 +1,5 @@
 import React, { createContext, useCallback, useState, useContext } from 'react';
 
-import { setDate } from 'date-fns';
-
 import api from '../_services/api';
 
 interface User {
